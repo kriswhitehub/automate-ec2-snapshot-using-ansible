@@ -1,0 +1,14 @@
+---
+- name: Snapshot EBS and Launch New EC2 Instance
+  hosts: localhost
+  gather_facts: no
+  vars:
+    ansible_python_interpreter: /usr/bin/python3.9  # Adjust the path to your Python interpreter
+  tasks:
+    - name: AWS Snapshot
+      ec2_snapshot:
+       aws_access_key: "key"
+       aws_secret_key: "key"
+       region: us-east-1
+       volume_id: vol-02c4ffe165d750381
+       description: 11th-of-February-2024-Snapshot
